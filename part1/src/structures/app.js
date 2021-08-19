@@ -6,8 +6,10 @@ constructor(logger) {
         this.logger.debug('App Mounted')
     })
     let app = this.app
+    let express = require('express')
     app.set('view engine', 'ejs')
     app.use(require('express').json())
+    app.use(express.static('public'))
     this.app.listen(process.env.PORT)
 }
 }
