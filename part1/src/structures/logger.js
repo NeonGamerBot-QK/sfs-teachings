@@ -11,11 +11,11 @@ module.exports = class Log extends require('events').EventEmitter {
             this.filelogs += `\n${tt}\n`
             this.writeFile()
         })
-        setInterval(this.writeFile, 60 * 1000)
+       // setInterval(this.writeFile, 60 * 1000)
         this.execute()
     }
     writeFile() {
-        writeFileSync(this.file, this.filelogs)
+        qwriteFileSync(this.file, this.filelogs)
         this.emit('debug', `[DEBUG] wrote to ${this.path}`)
     }
     execute() {

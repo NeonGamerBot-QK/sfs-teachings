@@ -2,28 +2,62 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-">
-    <meta name="description" content="Hi">
+    <meta name="description" content="<%=info.description %>">
+    <meta property="og:description" content="<%= info.description%>">
     <!-- https://fontawesome.com/v6.0/icons -->
-    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <script src="https://kit.fontawesome.com/8dd91d71f4.js" crossorigin="anonymous"></script>
+    <script src='script.js' crossorigin="anonymous" defer='true' async></script>
     <link rel="stylesheet" href="/styles/style.css">
-    <title>Personal WebSite</title>
+    <title><%= info.title %></title>
   </head>
   <body>
 <div class="box">
-  <img src="profile.jpg" alt="" class="box-img">
+  <img src="/images/profile.jpg" alt="Pfp" class="box-img">
   <h1>
-DarkCode</h1>
+<%=info.name%> </h1>
 <h5>
-Web Devloper - Web Designer</h5>
+built diffrent</h5>
 <p>
-A web developer is a programmer who specializes in, or is specifically engaged in, the development of World Wide Web applications, or applications that are run over HTTP from a web server to a web browser.</p>
+<%=info.description%></p>
 <ul>
-<li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+<li><a href="#"><i class="fa fa-solid fa-facebook-square"></i></a></li>
+<li> <a href="#coder"> <i class="fa fa-solid fa-laptop-code" aria-hidden="true"></i> </a></li>
 <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
 <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
 </ul>
 </div>
+<br>
+<br>
+<div class="box left">
+  <div id='coder'>
+    <h1>Info</h1>
+   <p> 
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+</p>
+    </div>
+</div>
+<div class="box right">
+  <h1> Info 2</h1>
+  <p>
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+    
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+    blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+  </p>
+</div>
+<footer>
+  <p id='date'> date</p>
+</footer>
 </body>
 </html>
 
