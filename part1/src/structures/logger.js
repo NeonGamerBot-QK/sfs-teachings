@@ -1,5 +1,9 @@
 const { writeFileSync, fstat } = require('fs');
 var colors = require('colors')
+/**
+ *  @decrapted
+ * @class
+ */
 module.exports = class Log extends require('events').EventEmitter {
     constructor(path) {
         super()

@@ -10,6 +10,8 @@ constructor(logger) {
     app.set('view engine', 'ejs')
     app.use(require('express').json())
     app.use(express.static('public'))
-    this.app.listen(process.env.PORT)
+    this.listner = this.app.listen(process.env.PORT, () => {
+        console.log('Listening on http://localhost:' + process.env.PORT)
+    })
 }
 }

@@ -6,12 +6,11 @@ if(!process.env.IS_ENV) {
 debug('Enabled dotenv')
 }
 log('Loading index.js')
-let info = {
-    title: 'about me',
-    name: 'Saahil',
-    description: ' is a dev',
-    tabs: [{ title: 'Info 1', description: '...info'.repeat(3) }, { title: 'Info 2', description: '...info'}]
-}
+let path = 'C:/Users/attud/Documents/Github/sfs-teachings/part1/public/data.json'
+let info = require(path)
+setInterval(() => {
+   delete require.cache[path]
+}, 9000)
 // let questions = require('./questions.json')
 let { app } = new App(console)
 app.get('/', (req,res) => {
