@@ -1,11 +1,19 @@
 console.log('Loaded About Me')
-
+console.log(window.navigator.onLine)
+if(!window.navigator.onLine) {
+    document.body.innerHTML = ''
+window.stop()
+    alert('Connect to the internet to continue')
+window.open('https://localhost:3000')
+    window.close()    
+}
 let noop = () => {}
 fetch('/date').then(d => {
     d.json().then(data => {
         document.getElementById('date').innerHTML = data
     })
 })
+// console.log(window)
 let lastfetch = 0;
 let date = Date.now()
 let latency = 0;
@@ -32,6 +40,7 @@ function reload() {
     let NowDate = Date.now()
     fetch('/data.json').then(d => d.json()).then(data => {
         document.getElementById('name').innerHTML = data.name; 
+        document.getElementById('img-box').src = '/images/profile.jpg'
         data.tabs.forEach((d, i) => {
            // console.log(i)
            let changed = {}

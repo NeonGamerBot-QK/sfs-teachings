@@ -5,6 +5,8 @@ body{
     margin: 0;
     padding: 0;
     background: url(../images/bg.jpg) no-repeat;
+    
+   /* background-color: #111; */
     background-size: cover;
   }
   .box{
@@ -67,5 +69,4 @@ body{
   }
   #date {
     color: white;
-
   }
