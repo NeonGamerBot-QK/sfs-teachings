@@ -2,10 +2,11 @@
     "title":"about me",
     "name":"Saahil",
     "description":" is a dev!",
-    "tabs":[
-    {"title":"Info 1","description":"...info...info...info"},
+    "tabs": [
+    {"title":"Info 1","description":"eeee"},
     {"title":"Info 2","description":"fixed"},
     {"title":"about me", "description":" is a dev"},
-    {"title": "Empty", "description": "Hi"}
+    {"title": "Empty", "description": "Hi"},
+    {"title":"about me", "description": "thomas"}
 ]
 }
