@@ -14,18 +14,19 @@ require('dotenv').config()
 }
 require('./passport-setup');
 app.use(cors())
-
+app.use(require('express-session')({ secret: /'Keyboard cat'^/.toString(), cookie: { maxAge: 24 * 60 * 60 * 1000 }}))
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
 // parse application/json
 app.use(bodyParser.json())
-
+app.use(passport.initialize())
+app.use(passport.session())
 // For an actual app you should configure this with an experation time, better keys, proxy and secure
-app.use(cookieSession({
-    name: 'tuto-session',
-    keys: ['key1', 'key2']
-  }))
+// app.use(cookieSession({
+//     name: 'tuto-session',
+//     keys: ['key1', 'key2']
+//   }))
 
 // Auth middleware that checks if the user is logged in
 const isLoggedIn = (req, res, next) => {
@@ -35,35 +36,28 @@ const isLoggedIn = (req, res, next) => {
         res.sendStatus(401);
     }
 }
-
-// Initializes passport and passport sessions
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Example protected and unprotected routes
-app.get('/', (req, res) => { 
-  console.log([[req.user]])
-  res.send('Example Home page!')
+app.get('/', (req, res) => {
+ // console.log(req.session, req.user)
+  if(req.user) return res.json(req.user);
+  res.send("Hi")
 })
-app.get('/failed', (req, res) => res.send('You Failed to log in!'))
+app.get('/discord', passport.authenticate('discord'));
+app.get('/discord/callback', passport.authenticate('discord', {
+    passReqToCallback: true,
+    failureMessage: 'Failed to Connect to Discord',
+ successFlash: true,
+ failWithError: true,
+}), function(req, res) {
+    res.redirect('/') // Successful auth
+});
 
-// In this route you can see that if the user is logged in u can acess his info in: req.user
-app.get('/good', isLoggedIn, (req, res) => res.send(`Welcome mr ${req.user.displayName}!`))
-
-// Auth Routes
-app.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
-
-app.get('/google/callback', passport.authenticate('google', { failureRedirect: '/failed' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/good');
-  }
-);
-
-app.get('/logout', (req, res) => {
-    req.session = null;
-    req.logout();
-    res.redirect('/');
+app.get("/error", function(req, res) {
+  res.send('An error has occurred')
 })
+app.get('/logout', function(req, res) {
+  req.session.destroy()
+  res.redirect('/')
+})
+app.set('json spaces', 1)
 
 app.listen(3000, () => console.log(`Example app listening on port ${3000}!`))

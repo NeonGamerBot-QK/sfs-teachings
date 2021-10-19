@@ -1,6 +1,6 @@
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-let google = JSON.parse(process.env.google)
+const GoogleStrategy = require('passport-discord').Strategy;
+let discord = JSON.parse(process.env.discord)
 passport.serializeUser(function(user, done) {
     /*
     From the user take just the id (to minimize the cookie size) and just pass the id of the user
@@ -21,9 +21,11 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new GoogleStrategy({
-    clientID: google.id,
-    clientSecret: google.secret,
-    callbackURL: "http://localhost:3000/google/callback"
+    clientID: discord.id,
+    clientSecret: discord.secret,
+    callbackURL: "http://localhost:3000/discord/callback",
+    scope: ["identify", "email"]
+  
   },
   function(accessToken, refreshToken, profile, done) {
     /*
@@ -31,6 +33,24 @@ passport.use(new GoogleStrategy({
      If yes select the user and pass him to the done callback
      If not create the user and then select him and pass to callback
     */
+//    profile.makeAvatarURL = ({ dynamic = false, format = null }) => {
+//     if(!profile.avatar) return null; 
+//     if(dynamic) {
+// format = 'webp'       
+//      }
+//      if(
+//        format && 
+//       (format === 'webp' || format === 'png')
+//       (format == 'png') ) {
+
+//        }
+// return `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}${dynamic ? '' : `.${format}`}`;
+//    } 
+//    profile.makeBannerURL = ({ dynamic = false, format = null }) => {
+//      if(!profile.banner) return null;
+//     return `https://cdn.discordapp.com/banners/${profile.id}/${profile.banner}${dynamic ? '' : `.${format}`}`;
+   
+   profile.refreshToken = refreshToken;
     return done(null, profile);
   }
 ));
