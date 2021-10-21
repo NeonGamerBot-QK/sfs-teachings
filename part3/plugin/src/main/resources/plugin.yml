@@ -1,0 +1,8 @@
+name: Sfsexample
+version: '${project.version}'
+main: me.saahil.sfsexample.Sfsexample
+api-version: 1.17
+author: <Your Name>
+database: true
+description: <insert desc here>
+website: https://THEWEBSITE_WE_JUST_MADE

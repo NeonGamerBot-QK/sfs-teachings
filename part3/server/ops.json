@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "uuid": "afef4126-b55d-4ff3-8902-96e6fd5d452f",
+    "name": "NeonGamerBot_QK",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
