@@ -14,3 +14,15 @@ public static Sfsexample instance;
         // Plugin startup logic
         logger = getLogger();
         instance = this;
+        logger.info("Post Load");
+        saveDefaultConfig();
+getServer().getPluginManager();
+getCommand("ping").setExecutor(new Ping());
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+        logger.info("Shutting down");
+    }
+}

@@ -6,3 +6,7 @@ author: <Your Name>
 database: true
 description: <insert desc here>
 website: https://THEWEBSITE_WE_JUST_MADE
+commands:
+  ping:
+    usage: /<command>
+    description: A ping pong command
