@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index",
   "scripts": {
-    "test": "echo \"Hi\""
+    "test": "echo \"Hi\"",
+    "start": "node ."
   },
   "author": "Neon",
   "license": "ISC",
